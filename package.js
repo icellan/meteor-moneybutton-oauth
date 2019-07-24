@@ -6,12 +6,12 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.use('ecmascript');
-  api.use('oauth', ['client', 'server']);
-  api.use('oauth2', ['client', 'server']);
-  api.use('random', 'client');
-  api.use('underscore', 'server');
-  api.use('service-configuration', ['client', 'server']);
+  api.use('ecmascript@0.12.7');
+  api.use('oauth@1.2.8', ['client', 'server']);
+  api.use('oauth2@1.2.1', ['client', 'server']);
+  api.use('random@1.1.0', 'client');
+  api.use('underscore@1.0.10', 'server');
+  api.use('service-configuration@1.0.11', ['client', 'server']);
 
   api.addFiles('moneybutton_common.js', ['server', 'client']);
 
