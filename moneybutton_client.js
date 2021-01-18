@@ -14,7 +14,7 @@ MoneyButton.requestCredential = (options, credentialRequestCompleteCallback) => 
   const credentialToken = Random.secret();
   let scope = "auth.user_identity:read";
   if (options && options.requestPermissions)
-    scope = options.requestPermissions.join(',');
+    scope = options.requestPermissions.join(' '); // space separated
 
   const loginStyle = OAuth._loginStyle('moneybutton', config, options);
 

@@ -2,7 +2,7 @@ Package.describe({
   name: "icellan:moneybutton-oauth",
   summary: "Money Button OAuth flow",
   git: "https://github.com/icellan/meteor-moneybutton-oauth.git",
-  version: "1.0.1"
+  version: "1.0.2"
 });
 
 Package.onUse(function(api) {
