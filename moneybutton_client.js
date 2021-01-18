@@ -18,15 +18,13 @@ MoneyButton.requestCredential = (options, credentialRequestCompleteCallback) => 
 
   const loginStyle = OAuth._loginStyle('moneybutton', config, options);
 
-  let loginUrl =
-      `https://www.moneybutton.com/oauth-login?client_id=${config.oAuthIdentifier}` +
-      `&return_uri=` +
-      encodeURIComponent(`https://www.moneybutton.com/oauth/v1/authorize?client_id=${config.oAuthIdentifier}` +
+  let loginUrl = `https://www.moneybutton.com/oauth/v1/authorize` +
+        `?response_type=code` +
+        `&client_id=${config.oAuthIdentifier}` +
         `&redirect_uri=${OAuth._redirectUri('moneybutton', config)}` +
-        `&response_type=code` +
         `&scope=${scope}` +
-        `&state=${OAuth._stateParam(loginStyle, credentialToken, options && options.redirectUrl)}`
-      );
+        `&state=${OAuth._stateParam(loginStyle, credentialToken, options && options.redirectUrl)}`;
+  if (MoneyButton.debug) console.log('loginUrl', loginUrl);
 
   // Handle authentication type (e.g. for force login you need auth_type: "reauthenticate")
   if (options && options.auth_type) {

@@ -44,7 +44,9 @@ const getTokenResponse = query => {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
             }).data;
+        if (MoneyButton.debug) console.log('token response', responseContent);
     } catch (err) {
+        if (MoneyButton.debug) console.error(err);
         throw Object.assign(
             new Error(`Failed to complete OAuth handshake with MoneyButton. ${err.message}`),
             { response: err.response },
@@ -78,6 +80,7 @@ const getIdentity = (accessToken, fields) => {
                 Authorization: `Bearer ${accessToken}`
             }
         });
+        if (MoneyButton.debug) console.log('get identity response', identity);
         const identityContent = JSON.parse(identity.content);
 
         return identityContent.data.attributes;
